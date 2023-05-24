@@ -1,0 +1,20 @@
+.welcomer {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 8%;
+    display: grid;
+}
+
+.topr {
+    color: #D7E3C7;
+}
+
+.middler {
+    color: white;
+}
+
+.bottomr {
+    color: white;
+}

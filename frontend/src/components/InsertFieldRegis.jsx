@@ -3,12 +3,12 @@ import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
-import '../styles/ifield.css'
+import '../styles/ifieldregis.css'
 import { Link } from 'react-router-dom';
 
 function InsertFieldRegis() {
   return (
-    <div className="insertfield">
+    <div className="insertfieldr">
       <Box 
         sx={{ width: '100%' }}
       >
