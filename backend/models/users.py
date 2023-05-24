@@ -9,8 +9,9 @@ from sqlalchemy import (
 )
 import bcrypt
 from backend.database import Base
-from backend.settings import SECRET_KEY
+from backend.settings import SECRET_KEY, ALGORITHM
 from jose import jwt
+from datetime import timedelta, datetime
 
 
 class User(Base):
@@ -38,18 +39,21 @@ class User(Base):
 
     def validate_password(self, password) -> bool:
         """Confirms password validity"""
+        to_encode = {"full_name": self.full_name, "email": self.email}
+        encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
         return {
-            "access_token": jwt.encode(
-                {"full_name": self.full_name, "email": self.email},
-                "ApplicationSecretKey"
-            )
+            "access_token": encoded_jwt
         }
 
-    def generate_token(self) -> dict:
+    def generate_token(self, expires_delta: timedelta | None = None) -> dict:
         """Generate access token for user"""
+        to_encode = {"full_name": self.full_name, "email": self.email}
+        if expires_delta:
+            expire = datetime.utcnow() + expires_delta
+        else:
+            expire = datetime.utcnow() + timedelta(minutes=15)
+        to_encode.update({"exp": expire})
+        encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
         return {
-            "access_token": jwt.encode(
-                {"full_name": self.full_name, "email": self.email},
-                SECRET_KEY
-            )
+            "access_token": encoded_jwt
         }

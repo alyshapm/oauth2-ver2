@@ -20,7 +20,9 @@ function Landing() {
     'Dont you mean sturgeon?',
     'I AM FYPL',
     'Do you remember? The 21st night of September',
-    'Best RE Protag: Leon or Ethan?'
+    'Best RE Protag: Leon or Ethan?',
+    "Our last line of defense will be Link"
+
     ];
 
     const [randomValue, setRandomValue] = useState(null);

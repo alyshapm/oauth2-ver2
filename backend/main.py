@@ -10,7 +10,6 @@ from backend.services import users as user_db_services
 
 user_model.Base.metadata.create_all(bind=engine)
 
-
 # authentication scheme setup
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
