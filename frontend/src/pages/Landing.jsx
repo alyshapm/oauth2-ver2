@@ -21,7 +21,7 @@ function Landing() {
     <div className=''>
         <h1>Welcome User!</h1>
         <h3>{randomValue}</h3>
-        <Link to="/">
+        <Link to="/login">
         <Button variant="contained">Sign out</Button>
         </Link>
     </div>
