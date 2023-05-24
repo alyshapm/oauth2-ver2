@@ -17,7 +17,9 @@ function InsertField() {
         <Stack spacing={2}>
           <TextField id="username" label="Username" variant="outlined" />
           <TextField id="password" label="Password" variant="outlined" />
-          <Button variant="contained">Login</Button>
+          <Link to='/landing'>
+          <Button variant="contained" sx={{ width: '100%' }}>Login</Button>
+          </Link>
         </Stack>
         <p>New user? <a href='/'>Sign up</a></p>
       </Box>
