@@ -8,8 +8,8 @@ from sqlalchemy import (
     PrimaryKeyConstraint
 )
 import bcrypt
-from backend.database import Base
-from backend.settings import SECRET_KEY, ALGORITHM
+from database import Base
+from settings import SECRET_KEY, ALGORITHM
 from jose import jwt
 from datetime import timedelta, datetime
 

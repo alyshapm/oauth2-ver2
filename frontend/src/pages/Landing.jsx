@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import '../styles/landing.css'
+
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 
@@ -21,8 +21,8 @@ function Landing() {
     'I AM FYPL',
     'Do you remember? The 21st night of September',
     'Best RE Protag: Leon or Ethan?',
-    'Our last line of defense will be Link',
-    'Nessie? You nicknamed my daughter after the Loch Ness Monster?'
+    'Assalamualaikum warahmatullahi wabarakatuh',
+    ''
     ];
 
     const [randomValue, setRandomValue] = useState(null);

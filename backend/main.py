@@ -4,10 +4,10 @@ from sqlalchemy.orm import Session
 from typing import Dict
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.database import get_db, engine
-from backend.models import users as user_model
-from backend.schemas.users import CreateUserSchema, UserSchema, UserLoginSchema
-from backend.services import users as user_db_services
+from database import get_db, engine
+from models import users as user_model
+from schemas.users import CreateUserSchema, UserSchema, UserLoginSchema
+from services import users as user_db_services
 
 user_model.Base.metadata.create_all(bind=engine)
 

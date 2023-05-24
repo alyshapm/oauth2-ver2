@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Landing from './pages/Landing'
 import Register from './pages/Register'
 import Login from './pages/Login'
+import { RequireToken } from "./Auth";
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element = {<Register/>}/>
           <Route path="/login" element = {<Login/>}/>
-          <Route path="/landing" element = {<Landing/>}/>
+          <Route path="/landing" element = { <RequireToken><Landing /></RequireToken>}/>
         </Routes>
       </div>
     </Router>
