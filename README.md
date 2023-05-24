@@ -11,7 +11,7 @@ This repository contains the source code for our full stack application, which u
 
 ## TECHNOLOGIES USED
 * **Frontend:** React and Vite are used to developed the frontend of this application.
-* **Backend:** 
+* **Backend:** FastAPI is used to create the backend, giving our API endpoints a stable foundation.
 * **Oauth2 and JWS:** We've implemented JWT for secure information transmission between the frontend and backend, as well as OAuth2 for authentication.
 * **Database:**  Our application stores user data and other data in a SQLITE database.
 
