@@ -6,23 +6,25 @@ import Stack from '@mui/material/Stack'
 import '../styles/ifield.css'
 import { Link } from 'react-router-dom';
 
-function InsertField() {
+function InsertFieldRegis() {
   return (
     <div className="insertfield">
       <Box 
         sx={{ width: '100%' }}
       >
-        <h1>Login</h1>
-        <h3>Welcome! Login to your account to get started.</h3>
+        <h1>Register</h1>
+        <h3>Welcome! Register a new account to get started.</h3>
         <Stack spacing={2}>
+          <TextField id="email" label="Email" variant="outlined" />
           <TextField id="username" label="Username" variant="outlined" />
           <TextField id="password" label="Password" variant="outlined" />
-          <Button variant="contained">Login</Button>
+          <TextField id="confirm-password" label="Confirm Password" variant="outlined" />
+          <Button variant="contained">Register</Button>
         </Stack>
-        <p>New user? <a href='/'>Sign up</a></p>
+        <p>Already have an account? <a href='/login'>Login</a></p>
       </Box>
     </div>
   )
 }
 
-export default InsertField
+export default InsertFieldRegis
