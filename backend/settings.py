@@ -1,1 +1,1 @@
-SECRET_KEY = "asuperdupersecretkey"
+SECRET_KEY = "asuperdupersecretkeymadebypompom"

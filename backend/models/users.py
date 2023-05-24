@@ -8,7 +8,9 @@ from sqlalchemy import (
     PrimaryKeyConstraint
 )
 import bcrypt
-from database import Base
+from backend.database import Base
+from backend.settings import SECRET_KEY
+from jose import jwt
 
 
 class User(Base):
@@ -48,6 +50,6 @@ class User(Base):
         return {
             "access_token": jwt.encode(
                 {"full_name": self.full_name, "email": self.email},
-                settings.SECRET_KEY
+                SECRET_KEY
             )
         }
