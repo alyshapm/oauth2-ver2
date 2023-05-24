@@ -14,6 +14,7 @@
     height: 100%;
     top:0px;
     left:0px;
+    cursor: url("../assets/master_sword.ico"), auto;
 }
 
 .landing h1 {
