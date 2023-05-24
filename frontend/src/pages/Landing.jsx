@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-
+import '../styles/landing.css'
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import background from '../assets/landing-bg.jpg'
 
 function Landing() {
     const strings = ['Did you do the laundry today?',
@@ -22,7 +23,7 @@ function Landing() {
     'Do you remember? The 21st night of September',
     'Best RE Protag: Leon or Ethan?',
     'Assalamualaikum warahmatullahi wabarakatuh',
-    ''
+    'Nessie? You nicknamed my daughter after the LochNess Monster????'
     ];
 
     const [randomValue, setRandomValue] = useState(null);
@@ -39,7 +40,11 @@ function Landing() {
     };
   
   return (
-    <div className='landing'>
+    <div className='landing'
+      style={{
+        backgroundImage: `url(${background})`,
+      }}
+    >
         <h1>Welcome User!</h1>
         <h3>{randomValue}</h3>
         <Link to="/login">

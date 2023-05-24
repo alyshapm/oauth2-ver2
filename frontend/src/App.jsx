@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element = {<Register/>}/>
           <Route path="/login" element = {<Login/>}/>
-          <Route path="/landing" element = { <RequireToken><Landing /></RequireToken>}/>
+          <Route path="/landing" element = {<Landing />}/>
         </Routes>
       </div>
     </Router>
