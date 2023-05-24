@@ -1,24 +1,37 @@
-import { useLocation,Navigate } from "react-router-dom"
+import React, { createContext, useEffect, useState } from "react";
 
-export const setToken = (token)=>{
+const initialState = {
+    tasks: {}
+  };
 
-    localStorage.setItem('temitope', token)// make up your own token
-}
+export const UserContext = createContext([initialState, () => {}]);
 
-export const fetchToken = (token)=>{
+export const UserProvider = (props) => {
+  const [token, setToken] = useState(localStorage.getItem("awesomeLeadsToken"));
 
-    return localStorage.getItem('temitope')
-}
+  useEffect(() => {
+    const fetchUser = async () => {
+      const requestOptions = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      };
 
-export function RequireToken({children}){
+      const response = await fetch("/api/users/me", requestOptions);
 
-    let auth = fetchToken()
-    let location = useLocation()
+      if (!response.ok) {
+        setToken(null);
+      }
+      localStorage.setItem("awesomeLeadsToken", token);
+    };
+    fetchUser();
+  }, [token]);
 
-    if(!auth){
-
-        return <Navigate to='/' state ={{from : location}}/>;
-    }
-
-    return children;
-}
+  return (
+    <UserContext.Provider value={[token, setToken]}>
+      {props.children}
+    </UserContext.Provider>
+  );
+};

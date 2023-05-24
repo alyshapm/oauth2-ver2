@@ -93,3 +93,11 @@ def delete_user(
     session: Session= Depends(get_db)
 ):
     return user_db_services.delete_user(session=session, id=id)
+
+@app.get("/api/users/me", response_model=_schemas.User)
+async def get_user(user: UserSchema = Depends(user_db_services.get_user)):
+    return user
+
+@app.get("/api")
+async def root():
+    return {"message": "Awesome Leads Manager"}
