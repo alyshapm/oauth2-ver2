@@ -1,0 +1,22 @@
+* {
+    text-align: left;
+}
+
+.login {
+    width: 100%;
+}
+
+.half {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    top: 0;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}

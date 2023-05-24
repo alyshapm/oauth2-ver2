@@ -5,6 +5,7 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Landing from './pages/Landing'
 import Register from './pages/Register'
+import Login from './pages/Login'
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element = {<Register/>}/>
+          <Route path="/login" element = {<Login/>}/>
           <Route path="/landing" element = {<Landing/>}/>
         </Routes>
       </div>
