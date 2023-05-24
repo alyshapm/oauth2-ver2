@@ -17,8 +17,8 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 app = FastAPI()
 
 origins = {
-    "http://localhost",
     "http://localhost:3000",
+    "http://localhost:5173"
 }
 
 app.add_middleware(
@@ -30,6 +30,7 @@ app.add_middleware(
 )
 
 # authentication processes
+
 @app.get("/profile/{id}", response_model=UserSchema)
 def profile(
     id:int,
