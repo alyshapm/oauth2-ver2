@@ -2,6 +2,7 @@ from fastapi import Body, Depends, FastAPI, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 from typing import Dict
+from fastapi.middleware.cors import CORSMiddleware
 
 from backend.database import get_db, engine
 from backend.models import users as user_model
@@ -14,6 +15,19 @@ user_model.Base.metadata.create_all(bind=engine)
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
 app = FastAPI()
+
+origins = {
+    "http://localhost",
+    "http://localhost:3000",
+}
+
+app.add_middleware(
+   CORSMiddleware,
+    allow_origins = origins,
+    allow_credentials =True,
+    allow_methods = ["*"],
+    allow_headers= ["*"],
+)
 
 # authentication processes
 @app.get("/profile/{id}", response_model=UserSchema)
