@@ -1,3 +1,8 @@
+@font-face {
+    font-family: TheWildBreathOfZelda;
+    src: url(../assets/TheWildBreathOfZelda-15Lv.ttf);
+}
+
 .landing {
     color: black;
     text-align: center;
@@ -9,4 +14,10 @@
     height: 100%;
     top:0px;
     left:0px;
+}
+
+.landing h1 {
+    font-family: TheWildBreathOfZelda;
+    font-size: 12ch;
+    margin-bottom: 0px;
 }
