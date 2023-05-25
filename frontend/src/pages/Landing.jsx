@@ -3,6 +3,8 @@ import '../styles/landing.css'
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import background from '../assets/landing-bg.jpg'
+import PlaySound from '../components/PlaySound';
+import KokiriForest from "../assets/audio/kokiriforest.mp3";
 
 function Landing() {
     const strings = ['Did you do the laundry today?',
@@ -25,10 +27,15 @@ function Landing() {
     'Assalamualaikum warahmatullahi wabarakatuh',
     'Nessie? You nicknamed my daughter after the LochNess Monster????',
     'Our last line of defense will be Link from react-router-dom',
-    'I should have been the one to fill your dark soul with liiiiiiiiiiiiiiiiiiiiiiiiiight!'
+    'I should have been the one to fill your dark soul with liiiiiiiiiiiiiiiiiiiiiiiiiight!',
+    "It's past your bedtime",
+    "FOR REAL???"
     ];
 
     const [randomValue, setRandomValue] = useState(null);
+    const [currentSong, setSong] = useState(KokiriForest); 
+    const [isLooped, setLoop] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(false);
 
     useEffect(() => {
       generateRandomValue();
@@ -49,8 +56,16 @@ function Landing() {
     >
         <h1>Welcome User!</h1>
         <h3>{randomValue}</h3>
+        <PlaySound
+            isPlaying = {isPlaying}
+            setIsPlaying = {setIsPlaying}
+            isLooped = {isLooped}
+            setLoop = {setLoop}
+            currentSong = {currentSong}
+            setSong = {setSong}
+        />
         <Link to="/login">
-        <Button variant="contained">Sign out</Button>
+        <Button className= "signout" variant="contained">Sign out</Button>
         </Link>
     </div>
   )

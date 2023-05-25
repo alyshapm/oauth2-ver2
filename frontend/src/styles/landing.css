@@ -22,3 +22,44 @@
     font-size: 12ch;
     margin-bottom: 0px;
 }
+
+.sound-player{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center;
+    column-gap:3em;
+    row-gap: 1em;
+    padding-bottom: 3em;
+    padding-top: 2em;
+    margin:0
+    
+  }
+
+  .play-btn,
+  .loop-btn, 
+  .shuffle-btn,
+  .stop-btn,
+  .stop-loop-btn {
+    padding: 0.3em 0.5em;
+    background-color: dodgerblue;
+    color: white;
+    border-style: solid;
+    border-width:0.2em;
+    font-size:1.5em;
+    font-family: "Arsenal", sans-serif;
+    font-weight: bold;
+    
+  }
+  
+  .play-btn:hover,
+  .loop-btn:hover,
+  .shuffle-btn:hover,
+  .stop-btn:hover,
+  .stop-loop-btn:hover {
+    border-color:lightskyblue;
+    background: white;
+    color: dodgerblue;
+    cursor: pointer;
+  }
+  
