@@ -23,7 +23,9 @@ function Landing() {
     'Do you remember? The 21st night of September',
     'Best RE Protag: Leon or Ethan?',
     'Assalamualaikum warahmatullahi wabarakatuh',
-    'Nessie? You nicknamed my daughter after the LochNess Monster????'
+    'Nessie? You nicknamed my daughter after the LochNess Monster????',
+    'Our last line of defense will be Link from react-router-dom',
+    'I should have been the one to fill your dark soul with liiiiiiiiiiiiiiiiiiiiiiiiiight!'
     ];
 
     const [randomValue, setRandomValue] = useState(null);
