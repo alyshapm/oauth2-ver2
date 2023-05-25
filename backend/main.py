@@ -31,6 +31,10 @@ app.add_middleware(
 
 # authentication processes
 
+@app.get("/")
+def index():
+    return{"Welcome":"This is the Backend"}
+
 @app.get("/profile/{id}", response_model=UserSchema)
 def profile(
     id:int,

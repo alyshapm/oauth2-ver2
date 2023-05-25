@@ -7,16 +7,29 @@ import '../styles/ifieldregis.css'
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import axios from 'axios';
+import { InputAdornment, IconButton } from "@mui/material";
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 import ErrorMessage from "./ErrorMessage";
 
 function InsertFieldRegis() {
   const navigate = useNavigate();
-  const [email, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [full_name, setFullName] = useState('');
   const [confirmationPassword, setConfirmationPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
+  // SHOW PASSWORD
+  const [showPassword, setShowPassword] = useState(false);
+  const handleClickShowPassword = () => setShowPassword(!showPassword);
+  const handleMouseDownPassword = () => setShowPassword(!showPassword);
+
+  // SHOW CONFIRMED PASSWORD
+  const [showCPassword, setShowCPassword] = useState(false);
+  const handleClickShowCPassword = () => setShowCPassword(!showCPassword);
+  const handleMouseDownCPassword = () => setShowCPassword(!showCPassword);
 
   const signup = async () => {
     try {
@@ -60,10 +73,46 @@ function InsertFieldRegis() {
           <h1>Register</h1>
           <h3>Welcome! Register a new account to get started.</h3>
           <Stack spacing={2}>
-            <TextField id="email" label="Username" variant="outlined" onChange={(e) => setUsername(e.target.value)}/>
+            <TextField id="email" label="Email" variant="outlined" onChange={(e) => setEmail(e.target.value)}/>
             <TextField id="full_name" label="Full name" variant="outlined" onChange={(e) => setFullName(e.target.value)}/>
-            <TextField id="password" label="Password" variant="outlined" onChange={(e) => setPassword(e.target.value)}/>
-            <TextField id="confirm-password" label="Confirm Password" variant="outlined" onChange={(e) => setConfirmationPassword(e.target.value)}/>
+            <TextField 
+              id="password" 
+              label="Password" 
+              variant="outlined" 
+              onChange={(e) => setPassword(e.target.value)}
+              type={showPassword ? "text" : "password"}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                    >
+                      {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                    </IconButton>
+                  </InputAdornment>
+                )
+              }}
+            />
+            <TextField 
+              id="confirm-password" 
+              label="Confirm Password" 
+              variant="outlined" 
+              onChange={(e) => setConfirmationPassword(e.target.value)}
+              type={showCPassword ? "text" : "password"}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      onClick={handleClickShowCPassword}
+                      onMouseDown={handleMouseDownCPassword}
+                    >
+                      {showCPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                    </IconButton>
+                  </InputAdornment>
+                )
+              }}
+            />
             <ErrorMessage message={errorMessage} />
             <Button variant="contained" type="submit">Register</Button>
           </Stack>

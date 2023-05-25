@@ -42,7 +42,7 @@ function InsertField() {
           <h3>Welcome! Login to your account to get started.</h3>
         
           <Stack spacing={2}>
-            <TextField id="username" label="Username" variant="outlined" onChange={(e) => setUsername(e.target.value)} />
+            <TextField id="username" label="Email" variant="outlined" onChange={(e) => setUsername(e.target.value)} />
             <TextField id="password" 
               label="Password" 
               variant="outlined" 
