@@ -8,12 +8,19 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { useState, useContext } from "react";
+import { InputAdornment, IconButton } from "@mui/material";
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 
 function InsertField() {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  const [showPassword, setShowPassword] = useState(false);
+  const handleClickShowPassword = () => setShowPassword(!showPassword);
+  const handleMouseDownPassword = () => setShowPassword(!showPassword);
 
   const login = async (e) => {
     e.preventDefault(); // Prevent default form submission behavior
@@ -36,7 +43,25 @@ function InsertField() {
         
           <Stack spacing={2}>
             <TextField id="username" label="Username" variant="outlined" onChange={(e) => setUsername(e.target.value)} />
-            <TextField id="password" label="Password" variant="outlined" onChange={(e) => setPassword(e.target.value)} />
+            <TextField id="password" 
+              label="Password" 
+              variant="outlined" 
+              onChange={(e) => setPassword(e.target.value)} 
+              type={showPassword ? "text" : "password"}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                    >
+                      {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                    </IconButton>
+                  </InputAdornment>
+                )
+              }}
+            />
             <Button variant="contained" sx={{ width: '100%' }} type="submit">Login</Button>
           </Stack>
           <p>New user? <Link to="/">Sign up</Link></p> {/* Use React Router's Link component */}
