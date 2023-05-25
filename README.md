@@ -1,4 +1,4 @@
-# Full Stack OAuth2 and JWT Implementation with React, Vite and a Database
+# Full stack user authentication with React JS, SQL Alchemy, FastAPI
 
 This repository contains the source code for our full stack application, which uses React and Vite for the frontend and a backend that communicates with a database,It implements OAuth2 and JWT authentication. 
 
@@ -45,3 +45,10 @@ uvicorn main:app --reload
 cd oauthver2-ver2/frontend
 npm run dev
 ```
+## Contributions
+
+**Front-end development:** Philipus Adriel Tandra and Kimberly Mazel are the main contributors to the frontend development, implementing React and Vite on Login, Register, and Landing pages. The frontend development process gained from the insights and support of every team member. 
+
+**Back-end development:** Alysha Puti Maulidina and Rachel Anastasia Wijaya contributed to developing the server-side logic. In particular, Alysha focuses on handling database and JWT implementations, whilst Rachel worked with OAuth2 and API communication with the front-end. 
+
+The frontend and backend components of our application are being integrated by Dafa Ramadhan Syaidina. His work was made possible by the team's collaborative efforts, which enabled interaction between the frontend and backend.
