@@ -12,6 +12,7 @@ from database import Base
 from settings import SECRET_KEY, ALGORITHM
 from jose import jwt
 from datetime import timedelta, datetime
+from typing import Optional
 
 
 class User(Base):
@@ -45,7 +46,7 @@ class User(Base):
             "access_token": encoded_jwt
         }
 
-    def generate_token(self, expires_delta: timedelta | None = None) -> dict:
+    def generate_token(self, expires_delta: Optional[timedelta] = None) -> dict:
         """Generate access token for user"""
         to_encode = {"full_name": self.full_name, "email": self.email}
         if expires_delta:

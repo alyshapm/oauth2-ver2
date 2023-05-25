@@ -14,7 +14,7 @@ user_model.Base.metadata.create_all(bind=engine)
 # authentication scheme setup
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
-app = FastAPI()
+app = FastAPI(debug=True)
 
 origins = {
     "http://localhost:3000",
